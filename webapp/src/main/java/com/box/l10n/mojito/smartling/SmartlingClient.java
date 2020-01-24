@@ -90,6 +90,8 @@ public class SmartlingClient {
         return filesResponse.getData();
     }
 
+    // update
+
     public String downloadFile(String projectId, String local, String fileUri, boolean includeOriginalStrings, RetrievalType retrievalType) {
         ResponseEntity<String> response = oAuth2RestTemplate.getForEntity(
                 API_FILES_DOWNLOAD, String.class, projectId, local, fileUri, includeOriginalStrings, retrievalType.getValue());
