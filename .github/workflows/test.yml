@@ -24,7 +24,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Just compile
-      run: ./mvnw package -D skipTests
+      run: ./mvnw install -D skipTests
 
     # Runs a set of commands using the runners shell
     - name: Run tests
