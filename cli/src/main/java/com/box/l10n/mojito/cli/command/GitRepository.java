@@ -83,7 +83,6 @@ public class GitRepository {
         try {
             BlameCommand blamer = new BlameCommand(jgitRepository);
             ObjectId commitID = jgitRepository.resolve("HEAD");
-            logger.info("getBlameResultForFile, commitId: {}", commitID);
             blamer.setStartCommit(commitID);
             blamer.setFilePath(filePath);
             BlameResult blame = blamer.call();

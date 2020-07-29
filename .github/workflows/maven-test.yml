@@ -1,7 +1,4 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
-name: Java CI with Maven
+name: Run tests - Ubuntu + Java 8
 
 on:
   push:
@@ -11,22 +8,14 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: git log
-        run: git log
-      - name: git status
-        run: git status
-      - name: git show HEAD
-        run: git show HEAD
-      - name: Build with Maven
-        run: mvn install -DskipTests
-      - name: Test with Maven
-        run: mvn test -pl cli
+      - name: Maven install, test skipped
+        run: ./mvnw install -DskipTests
+      - name: Maven test
+        run: ./mvnw test -pl cli
