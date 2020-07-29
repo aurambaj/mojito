@@ -82,7 +82,7 @@ public class GitRepository {
         logger.debug("getBlameResultForFile: {}", filePath);
         try {
             BlameCommand blamer = new BlameCommand(jgitRepository);
-            ObjectId commitID = jgitRepository.resolve("HEAD");
+            ObjectId commitID = jgitRepository.resolve("FETCH_HEAD");
             blamer.setStartCommit(commitID);
             blamer.setFilePath(filePath);
             BlameResult blame = blamer.call();
