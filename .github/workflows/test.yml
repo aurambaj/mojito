@@ -6,9 +6,9 @@ name: CI
 # events but only for the spring2x branch
 on:
   push:
-    branches: [ spring2x ]
+    branches: [ spring2x-fork ]
   pull_request:
-    branches: [ spring2x ]
+    branches: [ spring2x-fork ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

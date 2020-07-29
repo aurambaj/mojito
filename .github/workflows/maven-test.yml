@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ spring2x ]
+    branches: [ spring2x-fork ]
   pull_request:
-    branches: [ spring2x ]
+    branches: [ spring2x-fork ]
 
 jobs:
   build:
