@@ -2,7 +2,6 @@ package com.box.l10n.mojito.cli.command;
 
 import com.box.l10n.mojito.rest.entity.GitBlame;
 import org.eclipse.jgit.api.BlameCommand;
-import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.blame.BlameResult;
 import org.eclipse.jgit.lib.ObjectId;
@@ -83,7 +82,8 @@ public class GitRepository {
         logger.debug("getBlameResultForFile: {}", filePath);
         try {
             BlameCommand blamer = new BlameCommand(jgitRepository);
-            ObjectId commitID = jgitRepository.resolve("current");
+            ObjectId commitID = jgitRepository.resolve("HEAD");
+            logger.info("getBlameResultForFile, commitId: {}", commitID);
             blamer.setStartCommit(commitID);
             blamer.setFilePath(filePath);
             BlameResult blame = blamer.call();

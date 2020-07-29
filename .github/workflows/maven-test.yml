@@ -20,7 +20,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: git log
+        run: git log
+      - name: git status
+        run: git status
+      - name: git show HEAD
+        run: git show HEAD
       - name: Build with Maven
         run: mvn install -DskipTests
       - name: Test with Maven
-        run: mvn test
+        run: mvn test -pl cli
